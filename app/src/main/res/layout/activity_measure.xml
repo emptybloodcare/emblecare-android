@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Activity.MeasureActivity"
+    android:background="#f6f6f6"
+    android:orientation="vertical">
+    <ImageView
+        android:id="@+id/img_measure_back"
+        android:layout_width="23.5dp"
+        android:layout_height="23.5dp"
+        android:src="@drawable/back_button"
+        android:layout_marginTop="44.3dp"
+        android:layout_marginLeft="13.8dp"/>
+    <ImageView
+        android:id="@+id/btn_measure_measure_button"
+        android:layout_width="125.3dp"
+        android:layout_height="125.3dp"
+        android:src="@drawable/measure_button"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="40.5dp"
+        android:background="#00000000"
+        android:scaleType="fitCenter"/>
+    <TextView
+        android:id="@+id/txt_measure_measure_announcement"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="하트 버튼을 클릭하면 빈혈 측정이 시작됩니다."
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="21.8dp"
+        android:textColor="#d75a4a"
+        android:textSize="14sp"
+        android:fontFamily="@font/nanumsquare_acr"/>
+    <RelativeLayout
+        android:id="@+id/rl_measure_period"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:visibility="invisible"
+        android:layout_marginTop="25dp"
+        android:layout_gravity="center_horizontal">
+        <TextView
+            android:id="@+id/txt_measure_period_question"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="지금 생리중이신가요"
+            android:textColor="#616161"
+            android:textSize="17sp"
+            android:fontFamily="@font/nanumsquare_acb"
+            android:layout_centerVertical="true"/>
+        <ImageView
+            android:id="@+id/img_measure_period_select"
+            android:layout_width="51.8dp"
+            android:layout_height="51.8dp"
+            android:src="@drawable/period_seletor"
+            android:layout_toRightOf="@id/txt_measure_period_question"
+            android:layout_marginLeft="12dp">
+
+
+        </ImageView>
+    </RelativeLayout>
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="35dp"
+        android:background="#b8b8b8"
+        android:layout_marginTop="9dp">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="최근 빈혈 측정 결과"
+            android:textSize="18sp"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="10dp"
+            android:textColor="@color/white"
+            android:fontFamily="@font/nanumsquare_acb"/>
+    </RelativeLayout>
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/vp_measure_outcome"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"/>
+</LinearLayout>
