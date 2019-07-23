@@ -10,15 +10,17 @@
         android:supportsRtl="true"
         android:theme="@style/MainTheme"
         android:usesCleartextTraffic="true">
-        <activity android:name=".Activity.MainActivity" />
-        <activity
-            android:name=".Activity.SplashActivity"
-            android:theme="@style/SplashTheme">
+        <activity android:name=".Activity.MainActivity" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+        </activity>
+        <activity
+            android:name=".Activity.SplashActivity"
+            android:theme="@style/SplashTheme">
+
         </activity>
         <activity android:name=".Activity.JoinActivity" />
         <activity android:name=".Activity.LoginActivity" />
