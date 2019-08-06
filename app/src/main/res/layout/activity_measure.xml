@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Activity.MeasureActivity"
+    tools:context=".measure.MeasureActivity"
     android:background="#f6f6f6"
     android:orientation="vertical">
     <ImageView

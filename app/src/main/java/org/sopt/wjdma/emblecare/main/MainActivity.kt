@@ -1,4 +1,4 @@
-package org.sopt.wjdma.emblecare.Activity
+package org.sopt.wjdma.emblecare.main
 
 import android.content.Intent
 import android.support.v7.app.AppCompatActivity
@@ -11,6 +11,7 @@ import android.view.MenuItem
 import org.sopt.wjdma.emblecare.R
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.content_main.*
+import org.sopt.wjdma.emblecare.measure.MeasureActivity
 
 class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelectedListener {
 
@@ -26,7 +27,7 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
 
         nav_view.setNavigationItemSelectedListener(this)
         btn_main_measure.setOnClickListener {
-            val intent = Intent(this,MeasureActivity::class.java)
+            val intent = Intent(this, MeasureActivity::class.java)
             startActivity(intent)
         }
     }

@@ -1,0 +1,45 @@
+package org.sopt.wjdma.emblecare.network
+
+import com.google.gson.JsonObject
+import org.sopt.wjdma.emblecare.network.Get.*
+import org.sopt.wjdma.emblecare.network.Post.*
+import retrofit2.Call
+import retrofit2.http.*
+
+interface NetworkService {
+
+    //로그인
+    @POST("/api/login")
+    fun postLoginResponse(
+            @Header("Content-Type") content_type: String
+    ): Call<PostLoginResponse>
+
+    //회원가입
+    @POST("/api/join")
+    fun postJoinResponse(
+            @Header("Content-Type") content_type: String
+    ): Call<PostJoinResponse>
+
+    //측정하기
+    @POST("/api/measure")
+    fun postMeasureResponse(
+            @Header("Content-Type") content_type: String,
+            @Header("Authorization") token: String,
+            @Body body: JsonObject
+    ): Call<PostMeasureResponse>
+
+    //측정리스트
+    @GET("/user/{user_idx}/measures")
+    fun getMeasureListResponse(
+            @Header("Content-Type") content_type: String,
+            @Header("Authorization") token: String,
+            @Path("user_idx") user_idx: Int
+    ): Call<GetMeasureListResponse>
+
+    //날씨
+    @GET("/api/weather")
+    fun getWeatherResponse(
+            @Header("Content-Type") content_type: String,
+            @Header("Authorization") token: String
+    ): Call<GetWeatherResponse>
+}

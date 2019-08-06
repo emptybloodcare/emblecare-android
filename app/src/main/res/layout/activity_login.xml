@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Activity.LoginActivity"
+    tools:context=".LoginActivity"
     android:background="#f6f6f6">
     <RelativeLayout
         android:layout_width="match_parent"
@@ -21,7 +21,6 @@
             android:layout_width="match_parent"
             android:layout_height="44.5dp"
             android:layout_marginHorizontal="30dp"
-            android:background="@drawable/border_round_rect_gray_20dp"
             android:layout_below="@id/logo"
             android:layout_marginTop="35dp">
             <EditText
@@ -31,7 +30,7 @@
                 android:hint="아 이 디"
                 android:layout_marginLeft="15dp"
                 android:textColorHint="#b5b5b5"
-                android:background="@null"/>
+                android:background="@drawable/underline"/>
 
         </RelativeLayout>
         <RelativeLayout
@@ -39,7 +38,6 @@
             android:layout_width="match_parent"
             android:layout_height="44.5dp"
             android:layout_marginHorizontal="30dp"
-            android:background="@drawable/border_round_rect_gray_20dp"
             android:layout_below="@id/rl_login_act_id"
             android:layout_marginTop="20dp">
             <EditText
@@ -49,8 +47,41 @@
                 android:hint="비 밀 번 호"
                 android:layout_marginLeft="15dp"
                 android:textColorHint="#b5b5b5"
-                android:background="@null"/>
+                android:background="@drawable/underline"/>
 
         </RelativeLayout>
+        <RelativeLayout
+            android:id="@+id/rl_login_act"
+            android:layout_width="match_parent"
+            android:layout_height="44.5dp"
+            android:layout_marginHorizontal="30dp"
+            android:background="@drawable/rounded_button_red"
+            android:layout_below="@id/rl_login_act_pw"
+            android:layout_marginTop="60dp">
+            <TextView
+                android:id="@+id/tv_login_act_pw"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="로 그 인"
+                android:textSize="20dp"
+                android:textColor="#ffffff"
+                android:textStyle="bold"
+                android:layout_centerInParent="true"/>
+        </RelativeLayout>
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/rl_login_act"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="8dp"
+            android:background="@drawable/underline">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="13dp"
+                android:textColor="#515151"
+                android:text="회원이 아니신가요? 회원가입"/>
+        </RelativeLayout>
+
     </RelativeLayout>
 </RelativeLayout>

@@ -1,4 +1,4 @@
-package org.sopt.wjdma.emblecare.Activity
+package org.sopt.wjdma.emblecare.measure
 
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
