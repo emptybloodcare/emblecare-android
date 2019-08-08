@@ -7,13 +7,25 @@ import android.support.design.widget.NavigationView
 import android.support.v4.view.GravityCompat
 import android.support.v7.app.ActionBarDrawerToggle
 import android.support.v7.widget.Toolbar
+import android.util.Log
 import android.view.MenuItem
 import org.sopt.wjdma.emblecare.R
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.content_main.*
+import org.jetbrains.anko.toast
 import org.sopt.wjdma.emblecare.measure.MeasureActivity
+import org.sopt.wjdma.emblecare.network.ApplicationController
+import org.sopt.wjdma.emblecare.network.Get.GetWeatherResponse
+import org.sopt.wjdma.emblecare.network.NetworkService
+import retrofit2.Call
+import retrofit2.Callback
+import retrofit2.Response
 
 class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelectedListener {
+
+    val networkService: NetworkService by lazy {
+        ApplicationController.instance.networkService
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -30,6 +42,7 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
             val intent = Intent(this, MeasureActivity::class.java)
             startActivity(intent)
         }
+        getWeatherResponse()
     }
 
     override fun onBackPressed() {
@@ -54,5 +67,26 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
 
         drawer_layout.closeDrawer(GravityCompat.START)
         return true
+    }
+
+    private fun getWeatherResponse() {
+        val getWeatherResponse: Call<GetWeatherResponse> = networkService.getWeatherResponse("application/json")
+        getWeatherResponse.enqueue(object : Callback<GetWeatherResponse> {
+            override fun onFailure(call: Call<GetWeatherResponse>, t: Throwable) {
+                Log.e("****weather_Failed", t.toString())
+            }
+
+            override fun onResponse(call: Call<GetWeatherResponse>, response: Response<GetWeatherResponse>) {
+                if(response.isSuccessful) {
+                    if(response.body()!!.status == 200){
+                        Log.d("****MainActivity::", response.body().toString())
+                        txt_main_temperature.text = response.body()!!.data.temp.toString()+"도"
+                        txt_main_wetness.text = response.body()!!.data.reh.toString()+"%"
+                    } else{
+                        toast("날씨 데이터받아오기 실패")
+                    }
+                }
+            }
+        })
     }
 }

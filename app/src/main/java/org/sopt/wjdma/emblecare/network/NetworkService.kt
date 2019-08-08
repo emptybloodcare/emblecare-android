@@ -11,13 +11,15 @@ interface NetworkService {
     //로그인
     @POST("/api/login")
     fun postLoginResponse(
-            @Header("Content-Type") content_type: String
+            @Header("Content-Type") content_type: String,
+            @Body body:JsonObject
     ): Call<PostLoginResponse>
 
     //회원가입
     @POST("/api/join")
     fun postJoinResponse(
-            @Header("Content-Type") content_type: String
+            @Header("Content-Type") content_type: String,
+            @Body body: JsonObject
     ): Call<PostJoinResponse>
 
     //측정하기
@@ -39,7 +41,6 @@ interface NetworkService {
     //날씨
     @GET("/api/weather")
     fun getWeatherResponse(
-            @Header("Content-Type") content_type: String,
-            @Header("Authorization") token: String
+            @Header("Content-Type") content_type: String
     ): Call<GetWeatherResponse>
 }

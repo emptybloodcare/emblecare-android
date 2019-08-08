@@ -1,6 +1,7 @@
 package org.sopt.wjdma.emblecare.network.Get
 
 data class GetWeatherResponse(
+        val status: Int,
         val message: String,
         val data: weatherData
 )
