@@ -16,6 +16,7 @@ import org.sopt.wjdma.emblecare.network.ApplicationController
 import org.sopt.wjdma.emblecare.network.NetworkService
 import org.sopt.wjdma.emblecare.network.Post.JoinData
 import org.sopt.wjdma.emblecare.network.Post.PostLoginResponse
+import org.sopt.wjdma.emblecare.util.User
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -74,6 +75,8 @@ class LoginActivity : AppCompatActivity() {
                         toast("아이디와 비밀번호를 확인해주세요")
                     } else{
                         toast("로그인 성공")
+                        Log.e("****Login_idx::", response.body()!!.idx.toString())
+                        User.user_idx = response.body()!!.idx
                         startActivity<MainActivity>()
                         finish()
                     }

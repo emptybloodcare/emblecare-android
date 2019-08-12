@@ -19,7 +19,6 @@ import retrofit2.Response
 
 class JoinActivity : AppCompatActivity() {
 
-    lateinit var joinData: JoinData
     var jsonObject = JSONObject()
     val networkService: NetworkService by lazy {
         ApplicationController.instance.networkService
@@ -64,7 +63,6 @@ class JoinActivity : AppCompatActivity() {
                     jsonObject.put("name",input_name)
                     jsonObject.put("gender",input_gender)
                     jsonObject.put("birth", input_birth)
-                    joinData = JoinData(input_id,input_pw,input_name, input_gender, input_birth)
 
                     getJoinResponse()
                 }

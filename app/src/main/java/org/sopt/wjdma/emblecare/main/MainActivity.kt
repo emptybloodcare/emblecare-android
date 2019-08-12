@@ -12,11 +12,14 @@ import android.view.MenuItem
 import org.sopt.wjdma.emblecare.R
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.content_main.*
+import org.jetbrains.anko.startActivity
 import org.jetbrains.anko.toast
+import org.sopt.wjdma.emblecare.LoginActivity
 import org.sopt.wjdma.emblecare.measure.MeasureActivity
 import org.sopt.wjdma.emblecare.network.ApplicationController
 import org.sopt.wjdma.emblecare.network.Get.GetWeatherResponse
 import org.sopt.wjdma.emblecare.network.NetworkService
+import org.sopt.wjdma.emblecare.util.User
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -43,6 +46,7 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
             startActivity(intent)
         }
         getWeatherResponse()
+        setOnClickListener()
     }
 
     override fun onBackPressed() {
@@ -88,5 +92,13 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
                 }
             }
         })
+    }
+
+    private fun setOnClickListener(){
+        button_main_act_logout.setOnClickListener {
+            User.user_idx = null
+            startActivity<LoginActivity>()
+            finish()
+        }
     }
 }

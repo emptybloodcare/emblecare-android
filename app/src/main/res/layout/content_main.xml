@@ -90,13 +90,22 @@
                 android:layout_toRightOf="@id/img_main_check_button"
                 android:layout_marginLeft="2dp"/>
         </RelativeLayout>
-        <Button
+        <RelativeLayout
             android:id="@+id/btn_main_measure"
-            android:layout_width="190dp"
-            android:layout_height="43dp"
-            android:text="빈혈 측정하기"
+            android:layout_width="180dp"
+            android:layout_height="33dp"
+            android:background="@drawable/rounded_button_red"
             android:layout_gravity="center_horizontal"
-            android:layout_marginTop="31dp"/>
+            android:layout_marginTop="31dp">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="빈혈 측정하기"
+                android:textSize="15dp"
+                android:textColor="#ffffff"
+                android:textStyle="bold"
+                android:layout_centerInParent="true"/>
+        </RelativeLayout>
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="36dp"
@@ -138,17 +147,16 @@
                     android:layout_height="wrap_content"
                     android:layout_centerHorizontal="true"
                     android:layout_alignParentBottom="true"
-                    android:layout_marginBottom="20dp">
-                    <ImageView
-                        android:layout_width="48dp"
-                        android:layout_height="28dp"
-                        android:src="@drawable/rounded_square1"/>
+                    android:layout_marginBottom="20dp"
+                    android:background="@drawable/rounded_square_main_now">
                     <TextView
                         android:id="@+id/txt_main_temperature"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="23도"
-                        android:layout_centerInParent="true"/>
+                        android:layout_centerVertical="true"
+                        android:layout_marginHorizontal="7dp"
+                        android:layout_marginVertical="3dp"
+                        android:text="23도" />
                 </RelativeLayout>
             </RelativeLayout>
             <RelativeLayout
@@ -171,17 +179,15 @@
                     android:layout_height="wrap_content"
                     android:layout_centerHorizontal="true"
                     android:layout_alignParentBottom="true"
-                    android:layout_marginBottom="20dp">
-                    <ImageView
-                        android:layout_width="48dp"
-                        android:layout_height="28dp"
-                        android:src="@drawable/rounded_square1"/>
+                    android:layout_marginBottom="20dp"
+                    android:background="@drawable/rounded_square_main_now">
                     <TextView
                         android:id="@+id/txt_main_wetness"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="40%"
-                        android:layout_centerInParent="true"/>
+                        android:layout_marginHorizontal="7dp"
+                        android:layout_marginVertical="3dp"/>
                 </RelativeLayout>
 
             </RelativeLayout>
@@ -205,17 +211,15 @@
                     android:layout_height="wrap_content"
                     android:layout_centerHorizontal="true"
                     android:layout_alignParentBottom="true"
-                    android:layout_marginBottom="20dp">
-                    <ImageView
-                        android:layout_width="48dp"
-                        android:layout_height="28dp"
-                        android:src="@drawable/rounded_square1"/>
+                    android:layout_marginBottom="20dp"
+                    android:background="@drawable/rounded_square_main_now">
                     <TextView
                         android:id="@+id/txt_main_period"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="ON"
-                        android:layout_centerInParent="true"/>
+                        android:layout_marginHorizontal="7dp"
+                        android:layout_marginVertical="3dp"/>
                 </RelativeLayout>
             </RelativeLayout>
         </LinearLayout>

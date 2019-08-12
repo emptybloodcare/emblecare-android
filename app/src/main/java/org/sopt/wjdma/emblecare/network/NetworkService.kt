@@ -38,6 +38,13 @@ interface NetworkService {
             @Path("user_idx") user_idx: Int
     ): Call<GetMeasureListResponse>
 
+    //측정하기 클릭
+    @POST("/api/measure_flag")
+    fun postMeasureflagResponse(
+            @Header("Content-Type") content_type: String,
+            @Body body: JsonObject
+    ): Call<PostMeasureFlagResponse>
+
     //날씨
     @GET("/api/weather")
     fun getWeatherResponse(
