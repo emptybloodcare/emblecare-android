@@ -34,7 +34,7 @@ class MeasureActivity : AppCompatActivity() {
     }
 
     private fun setOnClickListener(){
-        img_measure_back.setOnClickListener {
+        iv_measure_back.setOnClickListener {
             finish()
         }
         var flag = 0
@@ -43,21 +43,21 @@ class MeasureActivity : AppCompatActivity() {
                 val measure_button:ImageView = findViewById(R.id.btn_measure_measure_button)
                 Glide.with(this).load(R.drawable.measure_ing).into(measure_button)
                 btn_measure_measure_button.setImageResource(R.drawable.measure_ing)
-                txt_measure_measure_announcement.setText("빈혈 측정 중입니다. 잠시만 기다려주세요.")
+                tv_measure_measure_announcement.setText("빈혈 측정 중입니다. 잠시만 기다려주세요.")
                 jsonObject1.put("flag",1)
                 getMeasureFlagResponse()
                 flag=1
             }
             else if(flag==1){
                 btn_measure_measure_button.setImageResource(R.drawable.measure_complete)
-                txt_measure_measure_announcement.setText("측정이 완료되었습니다.")
+                tv_measure_measure_announcement.setText("측정이 완료되었습니다.")
                 val rl_period:RelativeLayout = findViewById(R.id.rl_measure_period)
                 rl_period.setVisibility(View.VISIBLE)
 
             }
         }
-        img_measure_period_select.setOnClickListener {
-            img_measure_period_select.isSelected = !img_measure_period_select.isSelected
+        iv_measure_period_select.setOnClickListener {
+            iv_measure_period_select.isSelected = !iv_measure_period_select.isSelected
         }
     }
 

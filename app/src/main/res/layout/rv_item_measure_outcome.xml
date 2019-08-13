@@ -1,6 +1,45 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
-    android:layout_height="match_parent">
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+        <TextView
+            android:id="@+id/tv_rv_item_measure_outcome_hemo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="11g/dL"
+            android:layout_marginLeft="20dp"
+            android:layout_centerVertical="true"
+            android:textSize="17dp"
+            android:textColor="#2a2827"/>
+        <ImageView
+            android:id="@+id/iv_rv_item_measure_outcome_period"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/icon_period_on"
+            android:layout_marginVertical="10dp"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="7dp"
+            android:layout_toRightOf="@id/tv_rv_item_measure_outcome_hemo"/>
+        <TextView
+            android:id="@+id/tv_rv_item_measure_outcome_date"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="2018/03/01"
+            android:textSize="17dp"
+            android:layout_marginRight="20dp"
+            android:layout_centerVertical="true"
+            android:textColor="#2a2827"
+            android:layout_alignParentRight="true"/>
+    </RelativeLayout>
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0.3dp"
+        android:background="#707070">
 
-</android.support.constraint.ConstraintLayout>
+    </View>
+</LinearLayout>

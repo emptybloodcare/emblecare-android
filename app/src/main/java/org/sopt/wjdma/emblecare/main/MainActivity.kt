@@ -84,8 +84,8 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
                 if(response.isSuccessful) {
                     if(response.body()!!.status == 200){
                         Log.d("****MainActivity::", response.body().toString())
-                        txt_main_temperature.text = response.body()!!.data.temp.toString()+"도"
-                        txt_main_wetness.text = response.body()!!.data.reh.toString()+"%"
+                        tv_main_temperature.text = response.body()!!.data.temp.toString()+"도"
+                        tv_main_wetness.text = response.body()!!.data.reh.toString()+"%"
                     } else{
                         toast("날씨 데이터받아오기 실패")
                     }
@@ -95,7 +95,7 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
     }
 
     private fun setOnClickListener(){
-        button_main_act_logout.setOnClickListener {
+        btn_main_act_logout.setOnClickListener {
             User.user_idx = null
             startActivity<LoginActivity>()
             finish()

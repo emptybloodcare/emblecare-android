@@ -17,26 +17,26 @@
             android:layout_marginTop="20dp"
             android:layout_gravity="center_horizontal">
             <TextView
-                android:id="@+id/txt_main_user_name"
+                android:id="@+id/tv_main_user_name"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="김눈송"
-                android:textSize="26sp"
+                android:textSize="25dp"
                 android:textColor="@color/TextMain"
                 android:fontFamily="@font/nanumsquare_acb"/>
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textSize="20sp"
+                android:textSize="19dp"
                 android:text="님"
-                android:layout_toRightOf="@id/txt_main_user_name"
-                android:layout_alignBottom="@id/txt_main_user_name"
+                android:layout_toRightOf="@id/tv_main_user_name"
+                android:layout_alignBottom="@id/tv_main_user_name"
                 android:layout_marginLeft="4.8dp"
                 android:textColor="@color/TextMain"
                 android:fontFamily="@font/nanumsquare_acr"/>
         </RelativeLayout>
         <ImageView
-            android:id="@+id/img_main_blood_percent"
+            android:id="@+id/iv_main_blood_percent"
             android:layout_width="146dp"
             android:layout_height="146dp"
             android:src="@drawable/blood_drop"
@@ -48,26 +48,30 @@
             android:background="#e9e9e9"
             android:layout_marginTop="25dp"
             android:layout_gravity="center_horizontal">
-            <TextView
-                android:id="@+id/txt_main_today"
+            <RelativeLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="오늘의 빈혈 위험도는"
-                android:fontFamily="@font/nanumsquare_acr"
-                android:textColor="@color/TextMain"
-                android:textSize="18sp"
-                android:layout_marginTop="12dp"
-                android:layout_centerHorizontal="true"/>
-            <TextView
-                android:id="@+id/txt_main_status"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="높음"
-                android:textColor="#e22d15"
-                android:fontFamily="@font/nanumsquare_acb"
-                android:textSize="23dp"
-                android:layout_centerHorizontal="true"
-                android:layout_below="@id/txt_main_today"/>
+                android:layout_centerInParent="true">
+                <TextView
+                    android:id="@+id/tv_main_today"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="오늘의 빈혈 위험도는"
+                    android:fontFamily="@font/nanumsquare_acr"
+                    android:textColor="@color/TextMain"
+                    android:textSize="17dp"
+                    android:layout_centerHorizontal="true"/>
+                <TextView
+                    android:id="@+id/tv_main_status"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="높음"
+                    android:textColor="#e22d15"
+                    android:fontFamily="@font/nanumsquare_acb"
+                    android:textSize="23dp"
+                    android:layout_centerHorizontal="true"
+                    android:layout_below="@id/tv_main_today"/>
+            </RelativeLayout>
         </RelativeLayout>
         <RelativeLayout
             android:layout_width="wrap_content"
@@ -75,19 +79,19 @@
             android:layout_gravity="center_horizontal"
             android:layout_marginTop="6.5dp">
             <ImageView
-                android:id="@+id/img_main_check_button"
+                android:id="@+id/iv_main_check_button"
                 android:layout_width="18.3dp"
                 android:layout_height="18.3dp"
                 android:src="@drawable/check_button"/>
             <TextView
-                android:id="@+id/txt_main_advice_announcement"
+                android:id="@+id/tv_main_advice_announcement"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="쓰러질 가능성 다분~! 건강에 유의하세요"
-                android:textSize="13sp"
+                android:text="쓰러질 가능성 다분~! 건강에 유의하세요👍🏻😆"
+                android:textSize="12dp"
                 android:textColor="#d07f72"
                 android:fontFamily="@font/nanumsquare_acr"
-                android:layout_toRightOf="@id/img_main_check_button"
+                android:layout_toRightOf="@id/iv_main_check_button"
                 android:layout_marginLeft="2dp"/>
         </RelativeLayout>
         <RelativeLayout
@@ -119,11 +123,11 @@
                 android:fontFamily="@font/nanumsquare_acb"
                 android:text="지금은"
                 android:textColor="@color/white"
-                android:textSize="16sp" />
+                android:textSize="15dp" />
         </RelativeLayout>
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="100dp"
             android:orientation="horizontal"
             android:weightSum="3"
             android:background="@color/white">
@@ -135,59 +139,48 @@
                 android:layout_marginLeft="2dp"
                 android:layout_marginRight="1dp"
                 android:background="#e9e9e9">
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="날씨"
-                    android:textSize="17sp"
-                    android:textColor="@color/TextSub"
-                    android:fontFamily="@font/nanumsquare_acb"/>
                 <RelativeLayout
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_centerHorizontal="true"
-                    android:layout_alignParentBottom="true"
-                    android:layout_marginBottom="20dp"
-                    android:background="@drawable/rounded_square_main_now">
-                    <TextView
-                        android:id="@+id/txt_main_temperature"
+                    android:layout_centerInParent="true">
+                    <RelativeLayout
+                        android:id="@+id/now_hot"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_centerVertical="true"
-                        android:layout_marginHorizontal="7dp"
-                        android:layout_marginVertical="3dp"
-                        android:text="23도" />
-                </RelativeLayout>
-            </RelativeLayout>
-            <RelativeLayout
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:layout_marginVertical="2dp"
-                android:layout_marginHorizontal="1dp"
-                android:background="#e9e9e9">
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="습도"
-                    android:textSize="17sp"
-                    android:textColor="@color/TextSub"
-                    android:fontFamily="@font/nanumsquare_acb"/>
-
-                <RelativeLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_centerHorizontal="true"
-                    android:layout_alignParentBottom="true"
-                    android:layout_marginBottom="20dp"
-                    android:background="@drawable/rounded_square_main_now">
-                    <TextView
-                        android:id="@+id/txt_main_wetness"
+                        android:layout_centerHorizontal="true">
+                        <ImageView
+                            android:id="@+id/icon_hot"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:src="@drawable/icon_hot"/>
+                        <TextView
+                            android:layout_toRightOf="@id/icon_hot"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="날씨"
+                            android:layout_marginLeft="10dp"
+                            android:textSize="16dp"
+                            android:layout_centerVertical="true"
+                            android:textColor="@color/TextSub"
+                            android:fontFamily="@font/nanumsquare_acb"/>
+                    </RelativeLayout>
+                    <RelativeLayout
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="40%"
-                        android:layout_marginHorizontal="7dp"
-                        android:layout_marginVertical="3dp"/>
+                        android:layout_centerHorizontal="true"
+                        android:layout_marginTop="7dp"
+                        android:layout_below="@id/now_hot"
+                        android:background="@drawable/rounded_square_main_now">
+                        <TextView
+                            android:id="@+id/tv_main_temperature"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_centerVertical="true"
+                            android:layout_marginHorizontal="7dp"
+                            android:layout_marginVertical="3dp"
+                            android:textSize="16dp"
+                            android:text="23도" />
+                    </RelativeLayout>
                 </RelativeLayout>
 
             </RelativeLayout>
@@ -196,30 +189,105 @@
                 android:layout_height="match_parent"
                 android:layout_weight="1"
                 android:layout_marginVertical="2dp"
-                android:layout_marginLeft="1dp"
-                android:layout_marginRight="2dp"
+                android:layout_marginLeft="2dp"
+                android:layout_marginRight="1dp"
                 android:background="#e9e9e9">
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="생리"
-                    android:textSize="17sp"
-                    android:textColor="@color/TextSub"
-                    android:fontFamily="@font/nanumsquare_acb"/>
                 <RelativeLayout
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_centerHorizontal="true"
-                    android:layout_alignParentBottom="true"
-                    android:layout_marginBottom="20dp"
-                    android:background="@drawable/rounded_square_main_now">
-                    <TextView
-                        android:id="@+id/txt_main_period"
+                    android:layout_centerInParent="true">
+                    <RelativeLayout
+                        android:id="@+id/now_drop"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="ON"
-                        android:layout_marginHorizontal="7dp"
-                        android:layout_marginVertical="3dp"/>
+                        android:layout_centerHorizontal="true">
+                        <ImageView
+                            android:id="@+id/icon_drop"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:src="@drawable/icon_drop"/>
+                        <TextView
+                            android:layout_toRightOf="@id/icon_drop"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="날씨"
+                            android:layout_marginLeft="10dp"
+                            android:textSize="16dp"
+                            android:layout_centerVertical="true"
+                            android:textColor="@color/TextSub"
+                            android:fontFamily="@font/nanumsquare_acb"/>
+                    </RelativeLayout>
+                    <RelativeLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerHorizontal="true"
+                        android:layout_marginTop="7dp"
+                        android:layout_below="@id/now_drop"
+                        android:background="@drawable/rounded_square_main_now">
+                        <TextView
+                            android:id="@+id/tv_main_wetness"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_centerVertical="true"
+                            android:layout_marginHorizontal="7dp"
+                            android:layout_marginVertical="3dp"
+                            android:textSize="16dp"
+                            android:text="70%" />
+                    </RelativeLayout>
+                </RelativeLayout>
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:layout_marginVertical="2dp"
+                android:layout_marginLeft="2dp"
+                android:layout_marginRight="1dp"
+                android:background="#e9e9e9">
+                <RelativeLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true">
+                    <RelativeLayout
+                        android:id="@+id/now_heart"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerHorizontal="true">
+                        <ImageView
+                            android:id="@+id/icon_heart"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:src="@drawable/icon_heart"/>
+                        <TextView
+                            android:layout_toRightOf="@id/icon_heart"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="생리"
+                            android:layout_marginLeft="10dp"
+                            android:textSize="16dp"
+                            android:layout_centerVertical="true"
+                            android:textColor="@color/TextSub"
+                            android:fontFamily="@font/nanumsquare_acb"/>
+                    </RelativeLayout>
+                    <RelativeLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerHorizontal="true"
+                        android:layout_marginTop="7dp"
+                        android:layout_below="@id/now_heart"
+                        android:background="@drawable/rounded_square_main_now">
+                        <TextView
+                            android:id="@+id/tv_main_period"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_centerVertical="true"
+                            android:layout_marginHorizontal="7dp"
+                            android:layout_marginVertical="3dp"
+                            android:textSize="16dp"
+                            android:text="ON" />
+                    </RelativeLayout>
                 </RelativeLayout>
             </RelativeLayout>
         </LinearLayout>
