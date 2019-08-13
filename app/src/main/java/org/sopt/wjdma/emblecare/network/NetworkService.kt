@@ -34,8 +34,7 @@ interface NetworkService {
     @GET("/user/{user_idx}/measures")
     fun getMeasureListResponse(
             @Header("Content-Type") content_type: String,
-            @Header("Authorization") token: String,
-            @Path("user_idx") user_idx: Int
+            @Path("user_idx") user_idx: Int?
     ): Call<GetMeasureListResponse>
 
     //측정하기 클릭

@@ -2,9 +2,11 @@ package org.sopt.wjdma.emblecare.measure
 
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
+import android.support.v7.widget.LinearLayoutManager
 import android.util.Log
 import android.view.View
 import android.widget.ImageView
+import android.widget.LinearLayout
 import android.widget.RelativeLayout
 import com.bumptech.glide.Glide
 import com.google.gson.JsonObject
@@ -13,6 +15,8 @@ import kotlinx.android.synthetic.main.activity_measure.*
 import org.json.JSONObject
 import org.sopt.wjdma.emblecare.R
 import org.sopt.wjdma.emblecare.network.ApplicationController
+import org.sopt.wjdma.emblecare.network.Get.GetMeasureListResponse
+import org.sopt.wjdma.emblecare.network.Get.MeasureListData
 import org.sopt.wjdma.emblecare.network.NetworkService
 import org.sopt.wjdma.emblecare.network.Post.PostMeasureFlagResponse
 import org.sopt.wjdma.emblecare.util.User
@@ -23,9 +27,13 @@ import retrofit2.Response
 class MeasureActivity : AppCompatActivity() {
 
     var jsonObject1 = JSONObject()
+    var jsonObject2 = JSONObject()
     val networkService: NetworkService by lazy {
         ApplicationController.instance.networkService
     }
+    var dataList: ArrayList<MeasureListData> = ArrayList()
+    lateinit var measureOutcomeRecyclerViewAdapter: MeasureOutcomeRecyclerViewAdapter
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_measure)
@@ -61,8 +69,8 @@ class MeasureActivity : AppCompatActivity() {
         }
     }
 
+    //버튼 클릭(LED_ON) 서버 통신
     private fun getMeasureFlagResponse() {
-
         val gsonObject = JsonParser().parse(jsonObject1.toString()) as JsonObject
         Log.d("****MeasureAct::flag",gsonObject.toString())
         val postMeasureFlagResponse: Call<PostMeasureFlagResponse> = networkService.postMeasureflagResponse("application/json",gsonObject)
@@ -82,4 +90,25 @@ class MeasureActivity : AppCompatActivity() {
             }
         })
     }
+
+    //측정결과리스트 서버 통신
+    private fun getMeasureListResponse() {
+        val getMeasureListResponse = networkService.getMeasureListResponse("application/json", User.user_idx)
+        getMeasureListResponse.enqueue(object: Callback<GetMeasureListResponse>{
+            override fun onFailure(call: Call<GetMeasureListResponse>, t: Throwable) {
+                Log.e("getMeasureList_Fail", t.toString())
+            }
+
+            override fun onResponse(call: Call<GetMeasureListResponse>, response: Response<GetMeasureListResponse>) {
+                TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+            }
+        })
+    }
+
+    private fun setRecyclerView() {
+        measureOutcomeRecyclerViewAdapter = MeasureOutcomeRecyclerViewAdapter(this,dataList)
+        rv_measure_act_list.adapter = measureOutcomeRecyclerViewAdapter
+        rv_measure_act_list.layoutManager = LinearLayoutManager(this)
+    }
+
 }
