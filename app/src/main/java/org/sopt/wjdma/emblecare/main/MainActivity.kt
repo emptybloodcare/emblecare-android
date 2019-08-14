@@ -9,6 +9,7 @@ import android.support.v7.app.ActionBarDrawerToggle
 import android.support.v7.widget.Toolbar
 import android.util.Log
 import android.view.MenuItem
+import com.bumptech.glide.Glide
 import org.sopt.wjdma.emblecare.R
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.content_main.*
@@ -17,6 +18,7 @@ import org.jetbrains.anko.toast
 import org.sopt.wjdma.emblecare.LoginActivity
 import org.sopt.wjdma.emblecare.measure.MeasureActivity
 import org.sopt.wjdma.emblecare.network.ApplicationController
+import org.sopt.wjdma.emblecare.network.Get.GetMainResponse
 import org.sopt.wjdma.emblecare.network.Get.GetWeatherResponse
 import org.sopt.wjdma.emblecare.network.NetworkService
 import org.sopt.wjdma.emblecare.util.User
@@ -33,6 +35,8 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+        getMainResponse()
+
         val toolbar:Toolbar = findViewById(R.id.toolbar)
         setSupportActionBar(toolbar)
         supportActionBar!!.setDisplayShowTitleEnabled(false)
@@ -83,11 +87,30 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
             override fun onResponse(call: Call<GetWeatherResponse>, response: Response<GetWeatherResponse>) {
                 if(response.isSuccessful) {
                     if(response.body()!!.status == 200){
-                        Log.d("****MainActivity::", response.body().toString())
+                        Log.d("****MainActivity::", "weather : "+response.body().toString())
                         tv_main_temperature.text = response.body()!!.data.temp.toString()+"도"
                         tv_main_wetness.text = response.body()!!.data.reh.toString()+"%"
                     } else{
                         toast("날씨 데이터받아오기 실패")
+                    }
+                }
+            }
+        })
+    }
+
+    private fun getMainResponse() {
+        val getMainResponse: Call<GetMainResponse> = networkService.getMainResponse("application/json", User.user_idx)
+        getMainResponse.enqueue(object: Callback<GetMainResponse> {
+            override fun onFailure(call: Call<GetMainResponse>, t: Throwable) {
+                Log.e("****main_Failed", t.toString())
+            }
+
+            override fun onResponse(call: Call<GetMainResponse>, response: Response<GetMainResponse>) {
+                if(response.isSuccessful) {
+                    if(response.body()!!.status == 200) {
+                        Log.d("****MainActivity::", "main : "+response.body().toString())
+                        tv_main_user_name.text = response.body()!!.data.name
+                        setRisk(response.body()!!.data.risk)
                     }
                 }
             }
@@ -99,6 +122,48 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
             User.user_idx = null
             startActivity<LoginActivity>()
             finish()
+        }
+    }
+
+    private fun setRisk(risk: Int) {
+        if(risk == 1) {
+            Glide.with(this)
+                    .load(R.drawable.drop4)
+                    .into(iv_main_blood_percent)
+            tv_main_status.text = "안전"
+            tv_main_status.setTextColor(resources.getColor(R.color.status1))
+            iv_main_check_button.setImageDrawable(resources.getDrawable(R.drawable.check_button1))
+            tv_main_advice_announcement.text = "기분도 좋고 날씨도 좋고~! 훌륭해요\uD83D\uDC4D\uD83C\uDFFB"
+            tv_main_advice_announcement.setTextColor(resources.getColor(R.color.announce1))
+        } else if(risk == 2) {
+            Glide.with(this)
+                    .load(R.drawable.drop3)
+                    .into(iv_main_blood_percent)
+            tv_main_status.text = "보통"
+            tv_main_status.setTextColor(resources.getColor(R.color.status2))
+            iv_main_check_button.setImageDrawable(resources.getDrawable(R.drawable.check_button2))
+            tv_main_advice_announcement.text = "괜찮은 날이네요, 기분좋은 하루 보내세요\uD83D\uDE06"
+            tv_main_advice_announcement.setTextColor(resources.getColor(R.color.announce2))
+        } else if(risk == 3) {
+            Glide.with(this)
+                    .load(R.drawable.drop2)
+                    .into(iv_main_blood_percent)
+            tv_main_status.text = "위험"
+            tv_main_status.setTextColor(resources.getColor(R.color.status3))
+            iv_main_check_button.setImageDrawable(resources.getDrawable(R.drawable.check_button3))
+            tv_main_advice_announcement.text = "쓰러질 가능성 다분~! ☠건강에 유의하세요"
+            tv_main_advice_announcement.setTextColor(resources.getColor(R.color.announce3))
+        } else if(risk == 4){
+            Glide.with(this)
+                    .load(R.drawable.drop1)
+                    .into(iv_main_blood_percent)
+            tv_main_status.text = "심각"
+            tv_main_status.setTextColor(resources.getColor(R.color.status4))
+            iv_main_check_button.setImageDrawable(resources.getDrawable(R.drawable.check_button4))
+            tv_main_advice_announcement.text = "야외 활동을 자제하고 집에서 충분히 휴식을 취하세요!"
+            tv_main_advice_announcement.setTextColor(resources.getColor(R.color.announce4))
+        } else {
+            Log.d("****MainActivity:risk","wrong")
         }
     }
 }

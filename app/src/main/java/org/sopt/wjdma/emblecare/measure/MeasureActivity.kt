@@ -19,6 +19,7 @@ import org.sopt.wjdma.emblecare.network.Get.GetMeasureListResponse
 import org.sopt.wjdma.emblecare.network.Get.MeasureListData
 import org.sopt.wjdma.emblecare.network.NetworkService
 import org.sopt.wjdma.emblecare.network.Post.PostMeasureFlagResponse
+import org.sopt.wjdma.emblecare.network.Post.PostMeasureResponse
 import org.sopt.wjdma.emblecare.util.User
 import retrofit2.Call
 import retrofit2.Callback
@@ -38,6 +39,9 @@ class MeasureActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_measure)
         jsonObject1.put("user_idx",User.user_idx)
+        jsonObject2.put("user_idx",User.user_idx)
+        setRecyclerView()
+        getMeasureListResponse()
         setOnClickListener()
     }
 
@@ -51,17 +55,30 @@ class MeasureActivity : AppCompatActivity() {
                 val measure_button:ImageView = findViewById(R.id.btn_measure_measure_button)
                 Glide.with(this).load(R.drawable.measure_ing).into(measure_button)
                 btn_measure_measure_button.setImageResource(R.drawable.measure_ing)
-                tv_measure_measure_announcement.setText("빈혈 측정 중입니다. 잠시만 기다려주세요.")
+                tv_measure_measure_announcement.text = "빈혈 측정 중입니다. 잠시만 기다려주세요."
+
+                //LED 키기 위한 서버 통신
+                val rl_period:RelativeLayout = findViewById(R.id.rl_measure_period)
+                rl_period.visibility = View.INVISIBLE
                 jsonObject1.put("flag",1)
                 getMeasureFlagResponse()
                 flag=1
+
+                //측정 동영상 보내기 서버 통신
+                if(!iv_measure_period_select.isSelected){
+                    jsonObject2.put("period",0)
+                } else if(iv_measure_period_select.isSelected) {
+                    jsonObject2.put("period",1)
+                }
+
+                //비디오 촬영이 끝나면
+                jsonObject2.put("video","촬영비디오")
             }
             else if(flag==1){
                 btn_measure_measure_button.setImageResource(R.drawable.measure_complete)
-                tv_measure_measure_announcement.setText("측정이 완료되었습니다.")
+                tv_measure_measure_announcement.text = "측정이 완료되었습니다."
                 val rl_period:RelativeLayout = findViewById(R.id.rl_measure_period)
-                rl_period.setVisibility(View.VISIBLE)
-
+                rl_period.visibility = View.INVISIBLE
             }
         }
         iv_measure_period_select.setOnClickListener {
@@ -100,11 +117,40 @@ class MeasureActivity : AppCompatActivity() {
             }
 
             override fun onResponse(call: Call<GetMeasureListResponse>, response: Response<GetMeasureListResponse>) {
-                TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+                if(response.isSuccessful) {
+                    Log.e("MeasureAct::list", response.body().toString())
+                    val temp: ArrayList<MeasureListData> = response.body()!!.data
+                    if(temp.size>0) {
+                        val position = measureOutcomeRecyclerViewAdapter.itemCount
+                        measureOutcomeRecyclerViewAdapter.dataList.addAll(temp)
+                        measureOutcomeRecyclerViewAdapter.notifyItemInserted(position)
+                    }
+                } else {
+                    Log.e("MeasureAct::list", response.body().toString())
+                }
             }
         })
     }
 
+    private fun postMeasureResponse() {
+        val gsonObject = JsonParser().parse(jsonObject2.toString()) as JsonObject
+        val postMeasureResponse = networkService.postMeasureResponse("application/json",gsonObject)
+        postMeasureResponse.enqueue(object : Callback<PostMeasureResponse> {
+            override fun onFailure(call: Call<PostMeasureResponse>, t: Throwable) {
+                Log.e("postMeasure_Fail", t.toString())
+            }
+
+            override fun onResponse(call: Call<PostMeasureResponse>, response: Response<PostMeasureResponse>) {
+                if(response.isSuccessful) {
+                    Log.e("MeasureAct::outcome", response.body().toString())
+                    tv_measure_outcome_hb.text = response.body()!!.data!!.hb.toString()+"g/dL"
+                    //리사이클러뷰 데이터리스트에 추가
+                } else {
+                    Log.e("MeasureAct::outcome", response.body().toString())
+                }
+            }
+        })
+    }
     private fun setRecyclerView() {
         measureOutcomeRecyclerViewAdapter = MeasureOutcomeRecyclerViewAdapter(this,dataList)
         rv_measure_act_list.adapter = measureOutcomeRecyclerViewAdapter

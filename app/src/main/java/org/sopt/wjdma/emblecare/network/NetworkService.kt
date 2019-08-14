@@ -26,15 +26,14 @@ interface NetworkService {
     @POST("/api/measure")
     fun postMeasureResponse(
             @Header("Content-Type") content_type: String,
-            @Header("Authorization") token: String,
             @Body body: JsonObject
     ): Call<PostMeasureResponse>
 
     //측정리스트
-    @GET("/user/{user_idx}/measures")
+    @GET("/api/measures")
     fun getMeasureListResponse(
             @Header("Content-Type") content_type: String,
-            @Path("user_idx") user_idx: Int?
+            @Query ("user_idx") user_idx: Int?
     ): Call<GetMeasureListResponse>
 
     //측정하기 클릭
@@ -49,4 +48,11 @@ interface NetworkService {
     fun getWeatherResponse(
             @Header("Content-Type") content_type: String
     ): Call<GetWeatherResponse>
+
+    //메인화면
+    @GET("/api/main")
+    fun getMainResponse(
+            @Header("Content-Type") content_type: String,
+            @Query ("user_idx") user_idx: Int?
+    ): Call<GetMainResponse>
 }

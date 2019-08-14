@@ -8,4 +8,13 @@
     <color name="TextMain">#4b4b4b</color>
     <color name="TextSub">#676767</color>
     <color name="statusbar">#E4E4E4</color>
+    <!--메인화면!-->
+    <color name="status1">#0cac07</color>
+    <color name="announce1">#7ab978</color>
+    <color name="status2">#658efe</color>
+    <color name="announce2">#889edb</color>
+    <color name="status3">#ff9100</color>
+    <color name="announce3">#e8a041</color>
+    <color name="status4">#e22d15</color>
+    <color name="announce4">#e07f72</color>
 </resources>

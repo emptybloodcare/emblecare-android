@@ -14,15 +14,29 @@
         android:src="@drawable/back_button"
         android:layout_marginTop="44.3dp"
         android:layout_marginLeft="13.8dp"/>
-    <ImageView
-        android:id="@+id/btn_measure_measure_button"
-        android:layout_width="125.3dp"
-        android:layout_height="125.3dp"
-        android:src="@drawable/measure_button"
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
         android:layout_marginTop="40.5dp"
-        android:background="#00000000"
-        android:scaleType="fitCenter"/>
+        android:background="#00000000">
+        <ImageView
+            android:id="@+id/btn_measure_measure_button"
+            android:layout_width="125.3dp"
+            android:layout_height="125.3dp"
+            android:src="@drawable/measure_button"
+            android:scaleType="fitCenter"/>
+        <TextView
+            android:id="@+id/tv_measure_outcome_hb"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text=""
+            android:textSize="19dp"
+            android:fontFamily="@font/nanumsquare_acb"
+            android:textColor="#ffffff"
+            android:layout_centerInParent="true"/>
+    </RelativeLayout>
+
     <TextView
         android:id="@+id/tv_measure_measure_announcement"
         android:layout_width="wrap_content"
@@ -37,28 +51,26 @@
         android:id="@+id/rl_measure_period"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:visibility="invisible"
+        android:visibility="visible"
         android:layout_marginTop="25dp"
         android:layout_gravity="center_horizontal">
         <TextView
             android:id="@+id/tv_measure_period_question"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="지금 생리중이신가요"
+            android:text="지금 생리중이신가요?"
             android:textColor="#616161"
-            android:textSize="17sp"
+            android:textSize="15dp"
             android:fontFamily="@font/nanumsquare_acb"
             android:layout_centerVertical="true"/>
         <ImageView
             android:id="@+id/iv_measure_period_select"
-            android:layout_width="51.8dp"
-            android:layout_height="51.8dp"
+            android:layout_width="45dp"
+            android:layout_height="45dp"
+            android:scaleType="fitStart"
             android:src="@drawable/period_seletor"
             android:layout_toRightOf="@id/tv_measure_period_question"
-            android:layout_marginLeft="12dp">
-
-
-        </ImageView>
+            android:layout_marginLeft="12dp"/>
     </RelativeLayout>
     <RelativeLayout
         android:layout_width="match_parent"
@@ -77,10 +89,20 @@
     </RelativeLayout>
     <android.support.v4.widget.NestedScrollView
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:scrollbarFadeDuration="0"
+        android:scrollbarAlwaysDrawVerticalTrack="true"
+        android:scrollbarThumbVertical="@color/colorAccent"
+        android:scrollbarTrackVertical="@color/statusbar"
+        android:scrollbarSize="2dp">
         <android.support.v7.widget.RecyclerView
             android:id="@+id/rv_measure_act_list"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"/>
+            android:layout_height="wrap_content"
+            android:scrollbarFadeDuration="0"
+            android:scrollbarAlwaysDrawVerticalTrack="true"
+            android:scrollbarThumbVertical="@color/colorAccent"
+            android:scrollbarTrackVertical="@color/statusbar"
+            android:scrollbarSize="2dp"/>
     </android.support.v4.widget.NestedScrollView>
 </LinearLayout>

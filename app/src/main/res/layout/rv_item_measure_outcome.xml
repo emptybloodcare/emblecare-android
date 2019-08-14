@@ -2,7 +2,7 @@
 <LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_height="wrap_content"
     android:orientation="vertical">
     <RelativeLayout
         android:layout_width="wrap_content"
@@ -14,13 +14,14 @@
             android:text="11g/dL"
             android:layout_marginLeft="20dp"
             android:layout_centerVertical="true"
-            android:textSize="17dp"
+            android:textSize="14dp"
             android:textColor="#2a2827"/>
         <ImageView
             android:id="@+id/iv_rv_item_measure_outcome_period"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="23dp"
+            android:layout_height="23dp"
             android:src="@drawable/icon_period_on"
+            android:scaleType="fitStart"
             android:layout_marginVertical="10dp"
             android:layout_centerVertical="true"
             android:layout_marginLeft="7dp"
@@ -30,7 +31,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="2018/03/01"
-            android:textSize="17dp"
+            android:textSize="14dp"
             android:layout_marginRight="20dp"
             android:layout_centerVertical="true"
             android:textColor="#2a2827"

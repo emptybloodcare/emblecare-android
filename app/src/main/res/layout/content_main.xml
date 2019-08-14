@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView
+<RelativeLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content">
+    android:layout_height="match_parent">
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -14,7 +14,6 @@
         <RelativeLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
             android:layout_gravity="center_horizontal">
             <TextView
                 android:id="@+id/tv_main_user_name"
@@ -37,8 +36,9 @@
         </RelativeLayout>
         <ImageView
             android:id="@+id/iv_main_blood_percent"
-            android:layout_width="146dp"
-            android:layout_height="146dp"
+            android:layout_width="140dp"
+            android:layout_height="140dp"
+            android:scaleType="fitStart"
             android:src="@drawable/blood_drop"
             android:layout_marginTop="25dp"
             android:layout_gravity="center_horizontal"/>
@@ -69,6 +69,7 @@
                     android:textColor="#e22d15"
                     android:fontFamily="@font/nanumsquare_acb"
                     android:textSize="23dp"
+                    android:layout_marginTop="3dp"
                     android:layout_centerHorizontal="true"
                     android:layout_below="@id/tv_main_today"/>
             </RelativeLayout>
@@ -89,10 +90,11 @@
                 android:layout_height="wrap_content"
                 android:text="쓰러질 가능성 다분~! 건강에 유의하세요👍🏻😆"
                 android:textSize="12dp"
+                android:layout_centerVertical="true"
                 android:textColor="#d07f72"
                 android:fontFamily="@font/nanumsquare_acr"
                 android:layout_toRightOf="@id/iv_main_check_button"
-                android:layout_marginLeft="2dp"/>
+                android:layout_marginLeft="5dp"/>
         </RelativeLayout>
         <RelativeLayout
             android:id="@+id/btn_main_measure"
@@ -100,7 +102,7 @@
             android:layout_height="33dp"
             android:background="@drawable/rounded_button_red"
             android:layout_gravity="center_horizontal"
-            android:layout_marginTop="31dp">
+            android:layout_marginTop="25dp">
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -112,22 +114,23 @@
         </RelativeLayout>
         <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="36dp"
+            android:layout_height="wrap_content"
             android:background="#b9b9b9"
-            android:layout_marginTop="34dp">
+            android:layout_marginTop="30dp">
             <TextView
                 android:layout_width="wrap_content"
-                android:layout_height="30dp"
-                android:layout_alignParentBottom="true"
+                android:layout_height="wrap_content"
                 android:layout_marginLeft="15dp"
+                android:layout_marginVertical="5dp"
                 android:fontFamily="@font/nanumsquare_acb"
                 android:text="지금은"
+                android:layout_centerVertical="true"
                 android:textColor="@color/white"
                 android:textSize="15dp" />
         </RelativeLayout>
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="100dp"
+            android:layout_height="80dp"
             android:orientation="horizontal"
             android:weightSum="3"
             android:background="@color/white">
@@ -150,8 +153,9 @@
                         android:layout_centerHorizontal="true">
                         <ImageView
                             android:id="@+id/icon_hot"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
+                            android:layout_width="22dp"
+                            android:layout_height="22dp"
+                            android:scaleType="fitStart"
                             android:src="@drawable/icon_hot"/>
                         <TextView
                             android:layout_toRightOf="@id/icon_hot"
@@ -189,7 +193,7 @@
                 android:layout_height="match_parent"
                 android:layout_weight="1"
                 android:layout_marginVertical="2dp"
-                android:layout_marginLeft="2dp"
+                android:layout_marginLeft="1dp"
                 android:layout_marginRight="1dp"
                 android:background="#e9e9e9">
                 <RelativeLayout
@@ -203,14 +207,15 @@
                         android:layout_centerHorizontal="true">
                         <ImageView
                             android:id="@+id/icon_drop"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
+                            android:layout_width="22dp"
+                            android:layout_height="22dp"
+                            android:scaleType="fitStart"
                             android:src="@drawable/icon_drop"/>
                         <TextView
                             android:layout_toRightOf="@id/icon_drop"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="날씨"
+                            android:text="습도"
                             android:layout_marginLeft="10dp"
                             android:textSize="16dp"
                             android:layout_centerVertical="true"
@@ -243,8 +248,8 @@
                 android:layout_height="match_parent"
                 android:layout_weight="1"
                 android:layout_marginVertical="2dp"
-                android:layout_marginLeft="2dp"
-                android:layout_marginRight="1dp"
+                android:layout_marginLeft="1dp"
+                android:layout_marginRight="2dp"
                 android:background="#e9e9e9">
                 <RelativeLayout
                     android:layout_width="wrap_content"
@@ -257,8 +262,9 @@
                         android:layout_centerHorizontal="true">
                         <ImageView
                             android:id="@+id/icon_heart"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
+                            android:layout_width="22dp"
+                            android:layout_height="22dp"
+                            android:scaleType="fitStart"
                             android:src="@drawable/icon_heart"/>
                         <TextView
                             android:layout_toRightOf="@id/icon_heart"
@@ -292,4 +298,4 @@
             </RelativeLayout>
         </LinearLayout>
     </LinearLayout>
-</ScrollView>
+</RelativeLayout>

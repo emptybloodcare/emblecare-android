@@ -2,7 +2,7 @@ package org.sopt.wjdma.emblecare.network.Get
 
 data class GetMeasureListResponse(
         val message: String,
-        val data: ArrayList<MeasureListData>?,
+        val data: ArrayList<MeasureListData>,
         val dataNum: Int
 )
 

@@ -22,9 +22,15 @@ class MeasureOutcomeRecyclerViewAdapter(val ctx: Context, var dataList: ArrayLis
 
     override fun onBindViewHolder(holder: Holder, position: Int) {
         holder.hemo.text = dataList[position].hb.toString()+"g/dL"
-        Glide.with(ctx)
-                .load(dataList[position].period)
-                .into(holder.period)
+        if(dataList[position].period==0){ //false일 때,
+            Glide.with(ctx)
+                    .load(R.drawable.icon_period_off)
+                    .into(holder.period)
+        } else{ //true일 때,
+            Glide.with(ctx)
+                    .load(R.drawable.icon_period_on)
+                    .into(holder.period)
+        }
         holder.date.text = dataList[position].date
     }
 
