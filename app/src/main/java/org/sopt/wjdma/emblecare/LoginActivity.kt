@@ -1,9 +1,14 @@
 package org.sopt.wjdma.emblecare
 
+import android.app.Activity
+import android.content.Context
 import android.content.Intent
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
+import android.view.inputmethod.EditorInfo
+import android.view.inputmethod.InputMethodManager
+import android.widget.Switch
 import com.google.gson.JsonObject
 import com.google.gson.JsonParser
 import kotlinx.android.synthetic.main.activity_login.*
@@ -32,8 +37,20 @@ class LoginActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_login)
         setOnClickListener()
+        setOnEditorActionListener()
     }
 
+    private fun setOnEditorActionListener() {
+        et_login_act_pw.setOnEditorActionListener { v, actionId, event ->
+            if(actionId==EditorInfo.IME_ACTION_DONE){
+                val imm = this.getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
+                imm.hideSoftInputFromWindow(et_login_act_pw.windowToken,0)
+                return@setOnEditorActionListener true
+            } else {
+                return@setOnEditorActionListener false
+            }
+        }
+    }
     private fun setOnClickListener() {
         btn_login_act.setOnClickListener {
             try{
@@ -66,6 +83,7 @@ class LoginActivity : AppCompatActivity() {
         postLoginResponse.enqueue(object : Callback<PostLoginResponse>{
             override fun onFailure(call: Call<PostLoginResponse>, t: Throwable) {
                 Log.e("****Login_gson::", gsonObject.toString())
+
                 Log.e("****Login_Failed", t.toString())
             }
 

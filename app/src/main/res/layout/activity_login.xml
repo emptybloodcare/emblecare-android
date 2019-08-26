@@ -5,6 +5,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".LoginActivity"
+    android:focusable="true"
+    android:focusableInTouchMode="true"
     android:background="#f6f6f6">
 
     <RelativeLayout
@@ -33,6 +35,9 @@
                 android:layout_height="match_parent"
                 android:background="@drawable/underline"
                 android:hint="아 이 디"
+                android:singleLine="true"
+                android:nextFocusDown="@id/et_login_act_pw"
+                android:fontFamily="@font/nanumsquare_acr"
                 android:textColorHint="#b5b5b5" />
 
         </RelativeLayout>
@@ -49,8 +54,13 @@
                 android:id="@+id/et_login_act_pw"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
+                android:layout_alignParentTop="true"
+                android:layout_marginTop="0dp"
                 android:background="@drawable/underline"
+                android:fontFamily="@font/nanumsquare_acr"
                 android:hint="비 밀 번 호"
+                android:singleLine="true"
+                android:imeOptions="actionDone"
                 android:textColorHint="#b5b5b5" />
 
         </RelativeLayout>
@@ -70,6 +80,7 @@
                 android:layout_height="wrap_content"
                 android:layout_centerInParent="true"
                 android:text="로 그 인"
+                android:fontFamily="@font/nanumsquare_aceb"
                 android:textColor="#ffffff"
                 android:textSize="20dp"
                 android:textStyle="bold" />
@@ -88,6 +99,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="회원이 아니신가요? 회원가입"
+                android:fontFamily="@font/nanumsquare_acr"
                 android:textColor="#515151"
                 android:textSize="13dp" />
         </RelativeLayout>

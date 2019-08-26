@@ -1,9 +1,12 @@
 package org.sopt.wjdma.emblecare
 
+import android.content.Context
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import android.view.View
+import android.view.inputmethod.EditorInfo
+import android.view.inputmethod.InputMethodManager
 import com.google.gson.JsonObject
 import com.google.gson.JsonParser
 import kotlinx.android.synthetic.main.activity_join.*
@@ -37,6 +40,19 @@ class JoinActivity : AppCompatActivity() {
             }
         }
         setOnClickListener()
+        setOnEditorActionListener()
+    }
+
+    private fun setOnEditorActionListener() {
+        et_join_act_day.setOnEditorActionListener { v, actionId, event ->
+            if(actionId== EditorInfo.IME_ACTION_DONE){
+                val imm = this.getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
+                imm.hideSoftInputFromWindow(et_join_act_day.windowToken,0)
+                return@setOnEditorActionListener true
+            } else {
+                return@setOnEditorActionListener false
+            }
+        }
     }
 
     private fun setOnClickListener() {

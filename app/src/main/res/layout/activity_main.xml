@@ -16,7 +16,6 @@
             android:id="@+id/toolbar"
             android:layout_width="match_parent"
             android:layout_height="?attr/actionBarSize"
-            android:background="#f6f6f6"
             app:popupTheme="@style/MainTheme.PopupOverlay"
             app:title=""
             android:elevation="0dp"/>
@@ -25,6 +24,8 @@
     </LinearLayout>
     <android.support.design.widget.NavigationView
         android:id="@+id/nav_view"
+        app:itemTextAppearance="@style/DrawerTextViewStyle"
+        app:itemTextColor="@drawable/drawer_item_color"
         android:layout_width="wrap_content"
         android:layout_height="match_parent"
         android:layout_gravity="start"
@@ -44,7 +45,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="로그아웃"
-                android:textSize="13dp"
+                android:fontFamily="@font/nanumsquare_aceb"
+                android:textSize="20dp"
                 android:textColor="#ffffff"
                 android:textStyle="bold"
                 android:layout_gravity="center_horizontal"/>
