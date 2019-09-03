@@ -1,8 +1,9 @@
 package org.sopt.wjdma.emblecare.network.Post
 
 data class PostMeasureResponse(
-    val message: String,
-    val data: measureData?
+        val status: Int,
+        val message: String,
+        val data: measureData
 )
 
 data class measureData(

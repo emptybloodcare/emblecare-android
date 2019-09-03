@@ -7,6 +7,11 @@
     tools:context=".measure.MeasureActivity"
     android:background="#f6f6f6"
     android:orientation="vertical">
+    <VideoView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/video_view"
+        android:visibility="gone"/>
     <ImageView
         android:id="@+id/iv_measure_back"
         android:layout_width="23.5dp"

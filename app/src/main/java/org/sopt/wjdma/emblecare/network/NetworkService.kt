@@ -1,6 +1,7 @@
 package org.sopt.wjdma.emblecare.network
 
 import com.google.gson.JsonObject
+import okhttp3.MultipartBody
 import org.sopt.wjdma.emblecare.network.Get.*
 import org.sopt.wjdma.emblecare.network.Post.*
 import retrofit2.Call
@@ -23,10 +24,12 @@ interface NetworkService {
     ): Call<PostJoinResponse>
 
     //측정하기
+    @Multipart
     @POST("/api/measure")
     fun postMeasureResponse(
-            @Header("Content-Type") content_type: String,
-            @Body body: JsonObject
+            @Part("user_idx") user_idx: Int?,
+            @Part("period") period: Int?,
+            @Part video: MultipartBody.Part?
     ): Call<PostMeasureResponse>
 
     //측정리스트
