@@ -11,7 +11,7 @@
             android:id="@+id/tv_rv_item_measure_outcome_hemo"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="11g/dL"
+            android:text="1.0g/dL"
             android:layout_marginLeft="20dp"
             android:layout_centerVertical="true"
             android:textSize="14dp"
@@ -25,8 +25,7 @@
             android:scaleType="fitStart"
             android:layout_marginVertical="10dp"
             android:layout_centerVertical="true"
-            android:layout_marginLeft="7dp"
-            android:layout_toRightOf="@id/tv_rv_item_measure_outcome_hemo"/>
+            android:layout_marginLeft="90dp"/>
         <TextView
             android:id="@+id/tv_rv_item_measure_outcome_date"
             android:layout_width="wrap_content"

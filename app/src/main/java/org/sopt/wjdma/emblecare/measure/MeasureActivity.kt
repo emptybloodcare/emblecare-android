@@ -57,7 +57,7 @@ class MeasureActivity : AppCompatActivity() {
     private fun recordVideo() {
         var intent = Intent(MediaStore.ACTION_VIDEO_CAPTURE)
         Log.d("****MeasureAct::video","동영상촬영")
-        intent.putExtra(MediaStore.EXTRA_DURATION_LIMIT,3)
+        intent.putExtra(MediaStore.EXTRA_DURATION_LIMIT,15)
         startActivityForResult(intent,REQUEST_VIDEO_CAPTURE)
     }
 
@@ -158,8 +158,12 @@ class MeasureActivity : AppCompatActivity() {
                     tv_measure_measure_announcement.text = "측정이 완료되었습니다."
                     tv_measure_outcome_hb.text = response.body()!!.data!!.hb.toString()+"g/dL"
                     //리사이클러뷰 데이터리스트에 추가
-                    measureOutcomeRecyclerViewAdapter.notifyDataSetChanged()
-
+                    val hb = response.body()!!.data!!.hb
+                    val date = response.body()!!.data!!.date
+                    val date_add: String = "20"+date.substring(0,2)+"-"+date.substring(3,5)+"-"+date.substring(6,8)
+                    val temp = MeasureListData(null,hb,period,date_add)
+                    measureOutcomeRecyclerViewAdapter.dataList.add(0,temp)
+                    measureOutcomeRecyclerViewAdapter.notifyItemInserted(0)
                 } else {
                     Log.e("MeasureAct::outcome:x", response.body().toString())
                 }

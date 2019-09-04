@@ -7,8 +7,8 @@ data class GetMeasureListResponse(
 )
 
 data class MeasureListData(
-        val idx: Int,
+        val idx: Int?,
         val hb: Double,
-        val period: Int,
+        val period: Int?,
         val date: String
 )

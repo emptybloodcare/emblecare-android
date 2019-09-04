@@ -17,11 +17,8 @@
         android:supportsRtl="true"
         android:theme="@style/MainTheme"
         android:usesCleartextTraffic="true">
-        <activity android:name=".main.MainActivity" >
-
-        </activity>
-        <activity
-            android:name=".SplashActivity">
+        <activity android:name=".main.MainActivity" />
+        <activity android:name=".SplashActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

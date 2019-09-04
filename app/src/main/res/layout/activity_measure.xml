@@ -27,8 +27,8 @@
         android:background="#00000000">
         <ImageView
             android:id="@+id/btn_measure_measure_button"
-            android:layout_width="125.3dp"
-            android:layout_height="125.3dp"
+            android:layout_width="150dp"
+            android:layout_height="150dp"
             android:src="@drawable/measure_button"
             android:scaleType="fitCenter"/>
         <TextView
@@ -50,7 +50,7 @@
         android:layout_gravity="center_horizontal"
         android:layout_marginTop="21.8dp"
         android:textColor="#d75a4a"
-        android:textSize="13dp"
+        android:textSize="16dp"
         android:fontFamily="@font/nanumsquare_acr"/>
     <RelativeLayout
         android:id="@+id/rl_measure_period"
@@ -79,14 +79,14 @@
     </RelativeLayout>
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="30dp"
+        android:layout_height="35dp"
         android:background="#b8b8b8"
-        android:layout_marginTop="9dp">
+        android:layout_marginTop="30dp">
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="최근 빈혈 측정 결과"
-            android:textSize="14dp"
+            android:textSize="17dp"
             android:layout_centerVertical="true"
             android:layout_marginLeft="10dp"
             android:textColor="@color/white"
