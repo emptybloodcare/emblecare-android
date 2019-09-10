@@ -10,11 +10,14 @@ import android.support.v7.widget.Toolbar
 import android.util.Log
 import android.view.MenuItem
 import com.bumptech.glide.Glide
+import com.google.gson.JsonObject
+import com.google.gson.JsonParser
 import org.sopt.wjdma.emblecare.R
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.content_main.*
 import org.jetbrains.anko.startActivity
 import org.jetbrains.anko.toast
+import org.json.JSONObject
 import org.sopt.wjdma.emblecare.LoginActivity
 import org.sopt.wjdma.emblecare.measure.MeasureActivity
 import org.sopt.wjdma.emblecare.network.ApplicationController
@@ -110,8 +113,8 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
                 if(response.isSuccessful) {
                     if(response.body()!!.status == 200) {
                         Log.d("****MainActivity::", "main : "+response.body().toString())
-                        tv_main_user_name.text = response.body()!!.data.name
-                        setRisk(response.body()!!.data.risk)
+                        tv_main_user_name.text = response.body()!!.data[0].name
+                        setRisk(response.body()!!.data[0].risk)
                     }
                 }
             }

@@ -3,7 +3,7 @@ package org.sopt.wjdma.emblecare.network.Get
 data class GetMainResponse (
         var status: Int,
         var message: String,
-        var data: mainData
+        var data: List<mainData>
 )
 
 data class mainData(
