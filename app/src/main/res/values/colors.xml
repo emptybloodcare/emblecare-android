@@ -1,10 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimary">#008577</color>
+    <color name="colorPrimary">#d75a4a</color>
     <color name="colorPrimaryDark">#00574B</color>
-    <color name="colorAccent">#D81B60</color>
+    <color name="colorAccent">#d75a4a</color>
     <color name="white">#ffffff</color>
     <color name="background">#f5f5f5</color>
     <color name="TextMain">#4b4b4b</color>
     <color name="TextSub">#676767</color>
+    <color name="statusbar">#f6f6f6</color>
+    <!--메인화면!-->
+    <color name="status1">#0cac07</color>
+    <color name="announce1">#7ab978</color>
+    <color name="status2">#658efe</color>
+    <color name="announce2">#889edb</color>
+    <color name="status3">#ff9100</color>
+    <color name="announce3">#e8a041</color>
+    <color name="status4">#e22d15</color>
+    <color name="announce4">#e07f72</color>
+    <color name="ham_true">#e07f72</color>
+    <color name="ham_false">#312f2f</color>
 </resources>

@@ -16,7 +16,6 @@
             android:id="@+id/toolbar"
             android:layout_width="match_parent"
             android:layout_height="?attr/actionBarSize"
-            android:background="#f6f6f6"
             app:popupTheme="@style/MainTheme.PopupOverlay"
             app:title=""
             android:elevation="0dp"/>
@@ -25,13 +24,34 @@
     </LinearLayout>
     <android.support.design.widget.NavigationView
         android:id="@+id/nav_view"
+        app:itemTextAppearance="@style/DrawerTextViewStyle"
+        app:itemTextColor="@drawable/drawer_item_color"
         android:layout_width="wrap_content"
         android:layout_height="match_parent"
         android:layout_gravity="start"
         android:fitsSystemWindows="true"
         app:headerLayout="@layout/nav_header_main"
-        app:menu="@menu/activity_main_drawer" />
+        app:menu="@menu/activity_main_drawer">
+        <RelativeLayout
+            android:id="@+id/btn_main_act_logout"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingHorizontal="20dp"
+            android:paddingVertical="5dp"
+            android:background="@drawable/rounded_button_red"
+            android:layout_gravity="bottom|center_horizontal"
+            android:layout_marginBottom="20dp">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="로그아웃"
+                android:fontFamily="@font/nanumsquare_aceb"
+                android:textSize="20dp"
+                android:textColor="#ffffff"
+                android:textStyle="bold"
+                android:layout_gravity="center_horizontal"/>
+        </RelativeLayout>
 
 
-
+    </android.support.design.widget.NavigationView>
 </android.support.v4.widget.DrawerLayout>

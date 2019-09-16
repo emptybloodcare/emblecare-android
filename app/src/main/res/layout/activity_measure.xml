@@ -4,79 +4,110 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Activity.MeasureActivity"
+    tools:context=".measure.MeasureActivity"
     android:background="#f6f6f6"
     android:orientation="vertical">
+    <VideoView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/video_view"
+        android:visibility="gone"/>
     <ImageView
-        android:id="@+id/img_measure_back"
+        android:id="@+id/iv_measure_back"
         android:layout_width="23.5dp"
         android:layout_height="23.5dp"
         android:src="@drawable/back_button"
         android:layout_marginTop="44.3dp"
         android:layout_marginLeft="13.8dp"/>
-    <ImageView
-        android:id="@+id/btn_measure_measure_button"
-        android:layout_width="125.3dp"
-        android:layout_height="125.3dp"
-        android:src="@drawable/measure_button"
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
         android:layout_marginTop="40.5dp"
-        android:background="#00000000"
-        android:scaleType="fitCenter"/>
+        android:background="#00000000">
+        <ImageView
+            android:id="@+id/btn_measure_measure_button"
+            android:layout_width="150dp"
+            android:layout_height="150dp"
+            android:src="@drawable/measure_button"
+            android:scaleType="fitCenter"/>
+        <TextView
+            android:id="@+id/tv_measure_outcome_hb"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text=""
+            android:textSize="19dp"
+            android:fontFamily="@font/nanumsquare_acb"
+            android:textColor="#ffffff"
+            android:layout_centerInParent="true"/>
+    </RelativeLayout>
+
     <TextView
-        android:id="@+id/txt_measure_measure_announcement"
+        android:id="@+id/tv_measure_measure_announcement"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="하트 버튼을 클릭하면 빈혈 측정이 시작됩니다."
         android:layout_gravity="center_horizontal"
         android:layout_marginTop="21.8dp"
         android:textColor="#d75a4a"
-        android:textSize="14sp"
+        android:textSize="16dp"
         android:fontFamily="@font/nanumsquare_acr"/>
     <RelativeLayout
         android:id="@+id/rl_measure_period"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:visibility="invisible"
+        android:visibility="visible"
         android:layout_marginTop="25dp"
         android:layout_gravity="center_horizontal">
         <TextView
-            android:id="@+id/txt_measure_period_question"
+            android:id="@+id/tv_measure_period_question"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="지금 생리중이신가요"
+            android:text="지금 생리중이신가요?"
             android:textColor="#616161"
-            android:textSize="17sp"
+            android:textSize="15dp"
             android:fontFamily="@font/nanumsquare_acb"
             android:layout_centerVertical="true"/>
         <ImageView
-            android:id="@+id/img_measure_period_select"
-            android:layout_width="51.8dp"
-            android:layout_height="51.8dp"
+            android:id="@+id/iv_measure_period_select"
+            android:layout_width="45dp"
+            android:layout_height="45dp"
+            android:scaleType="fitStart"
             android:src="@drawable/period_seletor"
-            android:layout_toRightOf="@id/txt_measure_period_question"
-            android:layout_marginLeft="12dp">
-
-
-        </ImageView>
+            android:layout_toRightOf="@id/tv_measure_period_question"
+            android:layout_marginLeft="12dp"/>
     </RelativeLayout>
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="35dp"
         android:background="#b8b8b8"
-        android:layout_marginTop="9dp">
+        android:layout_marginTop="30dp">
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="최근 빈혈 측정 결과"
-            android:textSize="18sp"
+            android:textSize="17dp"
             android:layout_centerVertical="true"
             android:layout_marginLeft="10dp"
             android:textColor="@color/white"
             android:fontFamily="@font/nanumsquare_acb"/>
     </RelativeLayout>
-    <android.support.v7.widget.RecyclerView
-        android:id="@+id/vp_measure_outcome"
+    <android.support.v4.widget.NestedScrollView
         android:layout_width="match_parent"
-        android:layout_height="match_parent"/>
+        android:layout_height="match_parent"
+        android:scrollbarFadeDuration="0"
+        android:scrollbarAlwaysDrawVerticalTrack="true"
+        android:scrollbarThumbVertical="@color/colorAccent"
+        android:scrollbarTrackVertical="@color/statusbar"
+        android:scrollbarSize="2dp">
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/rv_measure_act_list"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:scrollbarFadeDuration="0"
+            android:scrollbarAlwaysDrawVerticalTrack="true"
+            android:scrollbarThumbVertical="@color/colorAccent"
+            android:scrollbarTrackVertical="@color/statusbar"
+            android:scrollbarSize="2dp"/>
+    </android.support.v4.widget.NestedScrollView>
 </LinearLayout>
