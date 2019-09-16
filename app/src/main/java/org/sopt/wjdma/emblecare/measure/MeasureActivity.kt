@@ -18,8 +18,10 @@ import kotlinx.android.synthetic.main.activity_measure.*
 import okhttp3.MediaType
 import okhttp3.MultipartBody
 import okhttp3.RequestBody
+import org.jetbrains.anko.startActivity
 import org.json.JSONObject
 import org.sopt.wjdma.emblecare.R
+import org.sopt.wjdma.emblecare.main.MainActivity
 import org.sopt.wjdma.emblecare.network.*
 import org.sopt.wjdma.emblecare.network.Get.GetMeasureListResponse
 import org.sopt.wjdma.emblecare.network.Get.MeasureListData
@@ -174,6 +176,11 @@ class MeasureActivity : AppCompatActivity() {
         measureOutcomeRecyclerViewAdapter = MeasureOutcomeRecyclerViewAdapter(this,dataList)
         rv_measure_act_list.adapter = measureOutcomeRecyclerViewAdapter
         rv_measure_act_list.layoutManager = LinearLayoutManager(this)
+    }
+
+    override fun onBackPressed() {
+        startActivity<MainActivity>()
+        super.onBackPressed()
     }
 
     //    //버튼 클릭(LED_ON) 서버 통신

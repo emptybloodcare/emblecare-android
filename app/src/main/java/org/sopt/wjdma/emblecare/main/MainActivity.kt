@@ -51,6 +51,7 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
         btn_main_measure.setOnClickListener {
             val intent = Intent(this, MeasureActivity::class.java)
             startActivity(intent)
+            finish()
         }
         getWeatherResponse()
         setOnClickListener()
@@ -115,6 +116,7 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
                         Log.d("****MainActivity::", "main : "+response.body().toString())
                         tv_main_user_name.text = response.body()!!.data[0].name
                         setRisk(response.body()!!.data[0].risk)
+                        tv_main_period.text = response.body()!!.data[0].period
                     }
                 }
             }

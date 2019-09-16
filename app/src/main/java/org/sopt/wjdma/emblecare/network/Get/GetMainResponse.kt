@@ -8,5 +8,6 @@ data class GetMainResponse (
 
 data class mainData(
         var name: String,
-        var risk: Int
+        var risk: Int,
+        var period: String
 )
