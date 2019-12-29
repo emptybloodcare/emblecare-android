@@ -1,4 +1,20 @@
-# emblecare-android
+## emblecare-android
 2019 숙명여자대학교 졸업작품 엠블케어 : 안드로이드
+- 스마트폰 카메라를 이용한 비침습적 헤모글로빈 측정 및 빈혈 위험도 계산
 
-<img src="https://user-images.githubusercontent.com/41736866/68655191-ebe0a480-0572-11ea-8e54-cf30ac9de8be.png"></img>
+------
+
+### Poster
+<img src="https://user-images.githubusercontent.com/41736866/71553797-c4796480-2a58-11ea-9719-9b9cd559dabd.png" width="50%"></img>
+
+------
+### Demo Video
+<iframe width="560" height="315" src="https://www.youtube.com/embed/S0A-YuS9tQs" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+------
+
+### Development Environment
+
+- Kotlin
+- Android Studio 3.5.2
+
