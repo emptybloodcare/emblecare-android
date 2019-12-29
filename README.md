@@ -9,7 +9,7 @@
 
 ------
 ### Demo Video
-[![Video Label](http://img.youtube.com/embed/S0A-YuS9tQs)](https://youtu.be/S0A-YuS9tQs) Video Label
+[![Video Label](http://img.youtube.com/vi/S0A-YuS9tQs/0.jpg)](https://youtu.be/S0A-YuS9tQs?t=0s) 
 
 ------
 
